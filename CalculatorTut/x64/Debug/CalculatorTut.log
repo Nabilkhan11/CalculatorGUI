@@ -1,0 +1,4 @@
+﻿  MyForm.cpp
+C:\Users\TechnosphereX\source\repos\CalculatorTut\CalculatorTut\MyForm.h(440,6): error C2276: '!': illegal operation on bound member function expression
+  (compiling source file 'MyForm.cpp')
+  
