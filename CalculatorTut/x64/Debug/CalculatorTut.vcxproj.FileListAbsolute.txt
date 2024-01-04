@@ -1,3 +1,6 @@
 C:\Users\TechnosphereX\source\repos\CalculatorTut\CalculatorTut\x64\Debug\CalculatorTut.vcxproj.AssemblyReference.cache
 C:\Users\TechnosphereX\source\repos\CalculatorTut\CalculatorTut\x64\Debug\CalculatorTut.MyForm.resources
 C:\Users\TechnosphereX\source\repos\CalculatorTut\CalculatorTut\x64\Debug\CalculatorTut.vcxproj.GenerateResource.cache
+C:\Users\TechnosphereX\Documents\GitHub\CalculatorGUI\CalculatorTut\x64\Debug\CalculatorTut.vcxproj.AssemblyReference.cache
+C:\Users\TechnosphereX\Documents\GitHub\CalculatorGUI\CalculatorTut\x64\Debug\CalculatorTut.MyForm.resources
+C:\Users\TechnosphereX\Documents\GitHub\CalculatorGUI\CalculatorTut\x64\Debug\CalculatorTut.vcxproj.GenerateResource.cache

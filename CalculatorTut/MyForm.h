@@ -100,6 +100,8 @@ namespace CalculatorTut {
 			// 
 			// textBox1
 			// 
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->textBox1->Location = System::Drawing::Point(26, 22);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
@@ -119,6 +121,7 @@ namespace CalculatorTut {
 			this->btn_Equal->TabIndex = 20;
 			this->btn_Equal->Text = L"=";
 			this->btn_Equal->UseVisualStyleBackColor = false;
+			this->btn_Equal->Click += gcnew System::EventHandler(this, &MyForm::btn_Equal_Click);
 			// 
 			// btn_BackSPACE
 			// 
@@ -132,6 +135,7 @@ namespace CalculatorTut {
 			this->btn_BackSPACE->TabIndex = 19;
 			this->btn_BackSPACE->Text = L"⌫";
 			this->btn_BackSPACE->UseVisualStyleBackColor = false;
+			this->btn_BackSPACE->Click += gcnew System::EventHandler(this, &MyForm::btn_BackSPACE_Click);
 			// 
 			// btn_Decimal
 			// 
@@ -173,6 +177,7 @@ namespace CalculatorTut {
 			this->btn_SUM->TabIndex = 16;
 			this->btn_SUM->Text = L"+";
 			this->btn_SUM->UseVisualStyleBackColor = false;
+			this->btn_SUM->Click += gcnew System::EventHandler(this, &MyForm::EnterOperator);
 			// 
 			// btn_3
 			// 
@@ -228,6 +233,7 @@ namespace CalculatorTut {
 			this->btn_MINUS->TabIndex = 21;
 			this->btn_MINUS->Text = L"-";
 			this->btn_MINUS->UseVisualStyleBackColor = false;
+			this->btn_MINUS->Click += gcnew System::EventHandler(this, &MyForm::EnterOperator);
 			// 
 			// btn_6
 			// 
@@ -283,6 +289,7 @@ namespace CalculatorTut {
 			this->btn_MULTIPLICATION->TabIndex = 8;
 			this->btn_MULTIPLICATION->Text = L"×";
 			this->btn_MULTIPLICATION->UseVisualStyleBackColor = false;
+			this->btn_MULTIPLICATION->Click += gcnew System::EventHandler(this, &MyForm::EnterOperator);
 			// 
 			// btn_9
 			// 
@@ -338,6 +345,7 @@ namespace CalculatorTut {
 			this->btn_DIVISION->TabIndex = 4;
 			this->btn_DIVISION->Text = L"÷";
 			this->btn_DIVISION->UseVisualStyleBackColor = false;
+			this->btn_DIVISION->Click += gcnew System::EventHandler(this, &MyForm::EnterOperator);
 			// 
 			// btn_PERCENTAGE
 			// 
@@ -377,6 +385,7 @@ namespace CalculatorTut {
 			this->btn_AC->TabIndex = 12;
 			this->btn_AC->Text = L"AC";
 			this->btn_AC->UseVisualStyleBackColor = false;
+			this->btn_AC->Click += gcnew System::EventHandler(this, &MyForm::btn_AC_Click);
 			// 
 			// MyForm
 			// 
@@ -431,16 +440,50 @@ private: System::Void EnterNumber(System::Object^ sender, System::EventArgs^ e) 
 }
 private: System::Void EnterOperator(System::Object^ sender, System::EventArgs^ e) {
 	Button^ NumbersOp = safe_cast<Button^>(sender);
-
 	firstDigit = double ::Parse(textBox1->Text);
-		textBox1->Text = "";
-		Operators = NumbersOp->Text;
+	textBox1->Text = "";
+	Operators = NumbersOp->Text;
 }
 private: System::Void btn_Decimal_click(System::Object^ sender, System::EventArgs^ e) {
-	if (! textBox1->Text->Contains)
-	{
+
+	if (!textBox1->Text->Contains("."))
+{
 		textBox1->Text = textBox1->Text + ".";
+}
+}
+
+private: System::Void btn_Equal_Click(System::Object^ sender, System::EventArgs^ e) {
+	secondDigit = double ::Parse(textBox1->Text);
+	if (Operators == "+")
+	{
+		result = firstDigit + secondDigit;
+		textBox1->Text = System::Convert::ToString(result);
+	}
+	else if(Operators == "-")
+	{
+		result = firstDigit - secondDigit;
+		textBox1->Text = System::Convert::ToString(result);
+	}
+	else if (Operators == "×")
+	{
+		result = firstDigit * secondDigit;
+		textBox1->Text = System::Convert::ToString(result);
+	}
+	else if (Operators == "÷")
+	{
+		result = firstDigit / secondDigit;
+		textBox1->Text = System::Convert::ToString(result);
+	}
+}
+
+private: System::Void btn_AC_Click(System::Object^ sender, System::EventArgs^ e) {
+	textBox1->Text = "0";
+}
+private: System::Void btn_BackSPACE_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (textBox1->Text->Length > 0) {
+	textBox1->Text = textBox1->Text->Remove(textBox1->Text->Length > -1, 1);
 	}
 }
 };
-}
+};
+
